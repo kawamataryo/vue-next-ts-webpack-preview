@@ -1,32 +1,16 @@
 <template>
   <div class="container">
     <img src="./logo.png">
-    <h1>Suspense demo</h1>
-    <Suspense>
-      <template #default>
-        <AsyncUsers/>
-      </template>
-      <template #fallback>
-        Loading...
-      </template>
-    </Suspense>
+    <h1>Modal demo</h1>
   </div>
 </template>
 
 <script lang="ts">
-import {defineComponent, onErrorCaptured, ref, Ref} from 'vue'
-import AsyncUsers from "./components/AsyncUsers.vue"
+import {defineComponent} from 'vue'
 
 export default defineComponent({
-  components: {
-    AsyncUsers
-  },
+  components: {},
   setup() {
-    const error: Ref<any> = ref(null);
-    onErrorCaptured(e => {
-      error.value = e;
-      return true;
-    })
   }
 })
 </script>
