@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { ref, defineComponent, onErrorCaptured, Ref } from 'vue'
+import { defineComponent, onErrorCaptured, ref, Ref } from 'vue'
 import AsyncUsers from "./components/AsyncUsers.vue"
 
 export default defineComponent({
@@ -21,7 +21,7 @@ export default defineComponent({
   },
   setup() {
     const error: Ref<any> = ref(null);
-    onErrorCaptured( e => {
+    onErrorCaptured(e => {
       error.value = e;
       return true;
     })
@@ -33,6 +33,7 @@ export default defineComponent({
   img {
     width: 200px;
   }
+
   h1 {
     font-family: Arial, Helvetica, sans-serif;
   }
