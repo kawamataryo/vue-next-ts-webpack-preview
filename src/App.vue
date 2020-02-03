@@ -1,18 +1,20 @@
 <template>
-  <img src="./logo.png">
-  <h1>Suspense demo</h1>
-  <Suspense>
-    <template #default>
-      <AsyncUsers/>
-    </template>
-    <template #fallback>
-      User data loading...
-    </template>
-  </Suspense>
+  <div class="container">
+    <img src="./logo.png">
+    <h1>Suspense demo</h1>
+    <Suspense>
+      <template #default>
+        <AsyncUsers/>
+      </template>
+      <template #fallback>
+        Loading...
+      </template>
+    </Suspense>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, onErrorCaptured, ref, Ref } from 'vue'
+import {defineComponent, onErrorCaptured, ref, Ref} from 'vue'
 import AsyncUsers from "./components/AsyncUsers.vue"
 
 export default defineComponent({
@@ -36,5 +38,11 @@ export default defineComponent({
 
   h1 {
     font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 100px auto;
+    text-align: center;
   }
 </style>
