@@ -5,6 +5,8 @@
     <Suspense>
       <template #default>
         <AsyncUsers/>
+        <AsyncFoods/>
+        <AsyncAnimals/>
       </template>
       <template #fallback>
         Loading...
@@ -16,10 +18,14 @@
 <script lang="ts">
 import {defineComponent, onErrorCaptured, ref, Ref} from 'vue'
 import AsyncUsers from "./components/AsyncUsers.vue"
+import AsyncFoods from "./components/AsyncFoods.vue"
+import AsyncAnimals from "./components/AsyncAnimals.vue"
 
 export default defineComponent({
   components: {
-    AsyncUsers
+    AsyncUsers,
+    AsyncFoods,
+    AsyncAnimals
   },
   setup() {
     const error: Ref<any> = ref(null);
