@@ -10,9 +10,9 @@ import { defineComponent } from "vue";
 export default defineComponent({
   async setup() {
     const fetchFoods = () => {
-      return new Promise<string[]>(resolve => {
+      return new Promise<any>((resolve, reject) => {
         setTimeout(() => {
-          resolve(['Rice', 'Noodles', 'Pasta'])
+          reject("400 server error")
         }, 3000)
       })
     };

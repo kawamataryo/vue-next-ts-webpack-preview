@@ -2,11 +2,12 @@
   <div class="container">
     <img src="./logo.png">
     <h1>Suspense demo</h1>
+    <div  v-if="error">
+        {{ error }}
+    </div>
     <Suspense>
       <template #default>
-        <AsyncUsers/>
         <AsyncFoods/>
-        <AsyncAnimals/>
       </template>
       <template #fallback>
         Loading...
@@ -29,10 +30,15 @@ export default defineComponent({
   },
   setup() {
     const error: Ref<any> = ref(null);
+
     onErrorCaptured(e => {
       error.value = e;
       return true;
-    })
+    });
+
+    return {
+      error
+    }
   }
 })
 </script>
