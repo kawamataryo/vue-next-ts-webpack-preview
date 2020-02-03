@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { ref, defineComponent, onErrorCaptured, Ref } from 'vue'
-import AsyncUsers from "./components/AsyncUsers.ts"
+import AsyncUsers from "./components/AsyncUsers.vue"
 
 export default defineComponent({
   components: {
