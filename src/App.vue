@@ -1,23 +1,30 @@
 <template>
   <img src="./logo.png">
-  <h1>Hello Vue 3!</h1>
-  <button @click="inc">Clicked {{ count }} times.</button>
+  <h1>Suspense demo</h1>
+  <Suspense>
+    <template #default>
+      <AsyncUsers/>
+    </template>
+    <template #fallback>
+      User data loading...
+    </template>
+  </Suspense>
 </template>
 
 <script lang="ts">
-import { ref, defineComponent } from 'vue'
+import { ref, defineComponent, onErrorCaptured, Ref } from 'vue'
+import AsyncUsers from "./components/AsyncUsers.ts"
 
 export default defineComponent({
+  components: {
+    AsyncUsers
+  },
   setup() {
-    const count = ref(0)
-    const inc = () => {
-      count.value++
-    }
-
-    return {
-      count,
-      inc
-    }
+    const error: Ref<any> = ref(null);
+    onErrorCaptured( e => {
+      error.value = e;
+      return true;
+    })
   }
 })
 </script>
