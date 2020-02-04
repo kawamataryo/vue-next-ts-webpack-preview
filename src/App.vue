@@ -18,9 +18,9 @@
 import { defineComponent, ref } from "vue";
 
 export default defineComponent({
-  components: {},
   setup() {
     const isPortalShow = ref(false);
+
     const toggleModal = () => {
       isPortalShow.value = !isPortalShow.value;
     };
