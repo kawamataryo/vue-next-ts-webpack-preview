@@ -12,7 +12,7 @@ export default defineComponent({
     const fetchFoods = () => {
       return new Promise<any>((resolve, reject) => {
         setTimeout(() => {
-          reject("400 server error")
+          reject("500 server error")
         }, 3000)
       })
     };
