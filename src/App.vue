@@ -3,14 +3,14 @@
     <img src="./logo.png" />
     <h1>Modal demo</h1>
     <button @click="toggleModal">toggle modal</button>
-    <Portal target="#portal-target">
-      <div v-if="isPortalShow" id="myModal" class="modal">
+    <Teleport target="#teleport-target">
+      <div v-if="isVisible" id="myModal" class="modal">
         <div class="modal-content">
           <span class="close" @click="toggleModal">&times;</span>
           <p>modall content</p>
         </div>
       </div>
-    </Portal>
+    </Teleport>
   </div>
 </template>
 
@@ -19,13 +19,13 @@ import { defineComponent, ref } from "vue";
 
 export default defineComponent({
   setup() {
-    const isPortalShow = ref(false);
+    const isVisible = ref(false);
 
     const toggleModal = () => {
-      isPortalShow.value = !isPortalShow.value;
+      isVisible.value = !isVisible.value;
     };
     return {
-      isPortalShow,
+      isVisible,
       toggleModal
     };
   }
