@@ -6,6 +6,7 @@
     <Teleport target="#teleport-target">
       <div v-if="isVisible" id="myModal" class="modal">
         <div class="modal-content">
+          <HelloWorld message="rararaa"/>
           <span class="close" @click="toggleModal">&times;</span>
           <p>modall content</p>
         </div>
@@ -16,8 +17,12 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
+import HelloWorld from "./components/HelloWorld.vue";
 
 export default defineComponent({
+  components: {
+    HelloWorld
+  },
   setup() {
     const isVisible = ref(false);
 
